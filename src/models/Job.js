@@ -16,20 +16,6 @@ export default ({ sequelize }) => {
         },
         location: {
             type: DataTypes.STRING,
-            values: [
-                'Tashkent',
-                'Andijan',
-                'Bukhara',
-                'Fergana',
-                'Jizzakh',
-                'Namangan',
-                'Navoiy',
-                'Qashqadaryo',
-                'Samarqand',
-                'Sirdaryo',
-                'Surkhandarya',
-                'Syrdarya'
-            ],
             allowNull: false
         },
         experience: {

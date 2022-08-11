@@ -17,7 +17,7 @@ export default async () => {
         console.log('Database connnected...!');
 
         await models({ sequelize });
-        await sequelize.sync({ alter: false });
+        await sequelize.sync({ force: true });
 
         return sequelize;
     } catch (error) {
