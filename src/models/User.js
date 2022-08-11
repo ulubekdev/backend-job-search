@@ -16,7 +16,7 @@ export default ({ sequelize }) => {
             defaultValue: undefined
         },
         role: {
-            type: DataTypes.ENUM('employee', 'employer'),
+            type: DataTypes.ENUM('employee', 'employer', 'admin'),
         }, 
         password: {
             type: DataTypes.STRING,

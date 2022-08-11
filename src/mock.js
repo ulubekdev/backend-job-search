@@ -20,6 +20,13 @@ export default async ({ sequelize }) => {
             role: 'employer',
             password: '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5',
             email: 'halil@gmail.com'
+        },
+        {
+            name: 'ulugbek',
+            company: undefined,
+            role: 'admin',
+            password: '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5',
+            email: 'ulugbekyolchimurodov@gmail.com'
         }
     ])
 
