@@ -11,7 +11,7 @@ export default ({ sequelize }) => {
             allowNull: false
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(1000),
             allowNull: false
         },
         location: {
@@ -23,7 +23,7 @@ export default ({ sequelize }) => {
             allowNull: true
         },
         salary: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         type: {
@@ -31,7 +31,7 @@ export default ({ sequelize }) => {
             allowNull: false
         },
         category: {
-            type: DataTypes.ENUM('it', 'marketing', 'design', 'sales', 'finance', 'management', 'other'),
+            type: DataTypes.ENUM('IT', 'MARKETING', 'DESIGN', 'SALES', 'FINANCE', 'MANAGMENT', 'OTHER'),
             allowNull: false
         },
         skills: {
@@ -49,19 +49,11 @@ export default ({ sequelize }) => {
         status: {
             type: DataTypes.ENUM('active', 'closed'),
             defaultValue: 'active'
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'users',
-                key: 'user_id'
-            }
         }
     }, {
         underscored: true,
         freeezTableName: true,
-        tableName: 'users'
+        tableName: 'jobs'
     });
 };
 

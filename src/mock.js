@@ -36,11 +36,11 @@ export default async ({ sequelize }) => {
             company: 'Nolbir',
             description: 'We are looking for a Frontend Developer to join our team. You will be responsible for building the ‘client-side’ of our web applications. You should be able to translate our company and customer needs into functional and appealing interactive applications. If you’re also familiar with Agile methodologies and are passionate about the latest front-end technologies and frameworks, we’d like to meet you. Ultimately, you will help us build and maintain functional and stable web applications.',
             location: 'Buxoro',
-            experience: '1-5',
+            experience: '1-3',
             salary: '800$',
             type: 'full-time',
             category: 'IT',
-            skills: 'HTML, CSS, JavaScript, React, Redux, Node.js, Express.js, MongoDB, Git, REST API, Agile Methodologies',
+            skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
             time: '04-07-2022',
             status: 'active'
@@ -54,7 +54,7 @@ export default async ({ sequelize }) => {
             salary: '500$',
             type: 'full-time',
             category: 'IT',
-            skills: 'HTML, CSS, JavaScript, React, Redux, Node.js, Express.js, MongoDB, Git, REST API, Agile Methodologies',
+            skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
             time: '04-07-2022',
             status: 'active'
@@ -68,7 +68,7 @@ export default async ({ sequelize }) => {
             salary: '1000$',
             type: 'part-time',
             category: 'IT',
-            skills: 'HTML, CSS, JavaScript, React, Redux, Node.js, Express.js, MongoDB, Git, REST API, Agile Methodologies',
+            skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
             time: '04-07-2022',
             status: 'active'
