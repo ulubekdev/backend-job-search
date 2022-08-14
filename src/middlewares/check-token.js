@@ -1,31 +1,36 @@
-import { ForbiddenError } from "../utils/errors.js";
 import JWT from "../utils/jwt.js";
+import { AuthorizationError, InternalServerError } from "../utils/errors.js";
 
-export default (req, res, next) => {
+export default async(req, res, next) => {
     try {
-        const { token } = req.headers;
-        const users = req.models.User.findAll(); 
+        let { token } = req.headers;
+        if(!token) token = req.params.token;
 
         if (!token) {
-            throw new ForbiddenError(res, 403, "No token provided");
+            return next(new AuthorizationError(401, "No token provided"));
         }
-
-        const { userId, agent } = JWT.verify(token);
+        const { user_id, agent } = JWT.verify(token);
 
         const reqAgent = req.headers['user-agent'];
 
         if (agent !== reqAgent) {
-            throw new ForbiddenError(res, 403, "Invalid token");
+            return next(new AuthorizationError(401, "Invalid token"));
         }
 
-        if(users.find(user => user.user_id == userId)) {
-            throw new ForbiddenError(res, 403, 'You are not authorized!')
+        const user = await req.models.User.findOne({
+            where: {
+                user_id
+            },
+        });
+
+        if (!user) {
+            return next(new AuthorizationError(401, "Invalid token"));
         }
         
-        req.userId = userId;
+        req.userId = user_id;
 
         return next();
     } catch (error) {
-        throw new NotFoundError(res, 403, "Invalid token");
+        return next(new InternalServerError(401, error.message));
     }
 }
