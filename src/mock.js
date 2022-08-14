@@ -9,7 +9,7 @@ export default async ({ sequelize }) => {
         },
         {
             name: 'nosir',
-            company: undefined,
+            company: null,
             role: 'employee',
             password: '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5',
             email: 'nosir@gmail.com'
@@ -23,7 +23,7 @@ export default async ({ sequelize }) => {
         },
         {
             name: 'ulugbek',
-            company: undefined,
+            company: null,
             role: 'admin',
             password: '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5',
             email: 'ulugbekyolchimurodov@gmail.com'

@@ -7,7 +7,7 @@ const router = Router();
 router.get('/users', checkToken, checkAdmin, controllers.GET_USERS);
 router.post('/register', controllers.REGISTER);
 router.post('/login', controllers.LOGIN);
-router.put('/:id', checkToken, checkAdmin, controllers.UPDATE_USER);
-router.delete('/:id', checkToken, checkAdmin, controllers.DELETE_USER);
+router.put('/users/:id', checkToken, checkAdmin, controllers.UPDATE_USER);
+router.delete('/users/:id', checkToken, checkAdmin, controllers.DELETE_USER);
 
 export default router;
