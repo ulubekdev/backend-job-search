@@ -9,7 +9,7 @@ export default async(req, res, next) => {
         if (!token) {
             return next(new AuthorizationError(401, "No token provided"));
         }
-        const { user_id, agent } = JWT.verify(token);
+        const { userId, agent } = JWT.verify(token);
 
         const reqAgent = req.headers['user-agent'];
 
@@ -19,7 +19,7 @@ export default async(req, res, next) => {
 
         const user = await req.models.User.findOne({
             where: {
-                user_id
+                user_id: userId
             },
         });
 
@@ -27,8 +27,7 @@ export default async(req, res, next) => {
             return next(new AuthorizationError(401, "Invalid token"));
         }
         
-        req.userId = user_id;
-
+        req.userId = userId;
         return next();
     } catch (error) {
         return next(new InternalServerError(401, error.message));
