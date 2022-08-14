@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize"
 import models from '../models/index.js'
+import { InternalServerError } from "../utils/errors.js";
 
 const sequelize = new Sequelize({
     username: process.env.PG_USER,
@@ -17,10 +18,11 @@ export default async () => {
         console.log('Database connnected...!');
 
         await models({ sequelize });
-        await sequelize.sync({ force: true });
+        await sequelize.sync({ alter: false });
 
         return sequelize;
     } catch (error) {
         console.log('Database error: ' + error.message);
+        throw new InternalServerError(500, error.message);
     }
 }
