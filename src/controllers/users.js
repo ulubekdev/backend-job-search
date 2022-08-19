@@ -93,14 +93,13 @@ const UPDATE_USER = async (req, res, next) => {
         let { id } = req.params;
         id = parseInt(id); 
 
-        const user = await req.models.User.update(req.body, {
+        const oldUser = await req.models.User.findOne({
             where: {
                 user_id: id
-            }, 
-            returning: true
+            }
         });
 
-        if (user.includes(0)) {
+        if(!oldUser) {
             return res.status(404).send({
                 status: 404,
                 message: 'User not found',
@@ -108,8 +107,15 @@ const UPDATE_USER = async (req, res, next) => {
                 data: null
             });
         }
+
+        const user = await req.models.User.update(req.body, {
+            where: {
+                user_id: id
+            }, 
+            returning: true
+        });
         
-        res.send({
+        res.status(200).send({
             status: 200,
             message: 'User updated successfully',
             data: user[1][0].dataValues
@@ -123,6 +129,21 @@ const DELETE_USER = async (req, res, next) => {
     try {
         let { id } = req.params;
         id = parseInt(id);
+
+        const oldUser = await req.models.User.findOne({
+            where: {
+                user_id: id
+            }
+        });
+
+        if(!oldUser) {
+            return res.status(404).send({
+                status: 404,
+                message: 'User not found',
+                token: null,
+                data: null
+            });
+        }
 
         if(id === req.userId) {
             return next(new InternalServerError(500, 'You cannot delete yourself'));

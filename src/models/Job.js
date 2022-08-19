@@ -2,6 +2,11 @@ import { DataTypes } from 'sequelize';
 
 export default ({ sequelize }) => {
     sequelize.define('Job', {
+        job_id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         title: {
             type: DataTypes.STRING,
             allowNull: false

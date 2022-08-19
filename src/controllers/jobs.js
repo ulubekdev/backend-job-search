@@ -51,8 +51,53 @@ const CREATE_JOB = async (req, res, next) => {
 
 };
 
+const UPDATE_JOB = async (req, res, next) => {
+    try {
+        let { id } = req.params;
+        id = parseInt(id);
+
+        const oldJob = await req.models.Job.findOne({
+            where: {
+                job_id: id
+            }
+        });
+
+        if(!oldJob) {
+            return res.status(404).send({
+                status: 404,
+                message: 'Job not found',
+                data: null
+            });
+        }
+
+        if(oldJob.status === 'closed') {
+            return res.status(400).send({
+                status: 400,
+                message: 'Job is closed',
+                data: null
+            });
+        }
+
+        let job = await req.models.Job.update(req.body, {
+            where: {
+                job_id: id
+            },
+            returning: true
+        });
+
+        res.status(200).send({
+            status: 200,
+            message: 'Job updated successfully',
+            data: job[1][0].dataValues
+        });
+
+    } catch (error) {
+        return next(new InternalServerError(500, error.message));
+    }
+};
 
 export default {
     GET_JOBS,
-    CREATE_JOB
+    CREATE_JOB,
+    UPDATE_JOB
 }
