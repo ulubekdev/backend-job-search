@@ -42,7 +42,6 @@ export default async ({ sequelize }) => {
             category: 'IT',
             skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
-            time: '04-07-2022',
             status: 'active'
         },
         {
@@ -56,7 +55,6 @@ export default async ({ sequelize }) => {
             category: 'IT',
             skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
-            time: '04-07-2022',
             status: 'active'
         },
         {
@@ -70,7 +68,6 @@ export default async ({ sequelize }) => {
             category: 'IT',
             skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
-            time: '04-07-2022',
             status: 'active'
         }
     ])

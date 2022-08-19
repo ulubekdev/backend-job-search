@@ -3,10 +3,10 @@ import cors from 'cors';
 import './config/index.js';
 
 import UserRouter from './routes/users.js';
-// import JobRouter from './routes/jobs.js';
+import JobRouter from './routes/jobs.js';
 
 import database from './config/db.js';
-// import mockData from './mock.js'
+// import mockData from './mock.js';
 
 import logger from './middlewares/logger.js';
 import errorHandler from './middlewares/error-handler.js';
@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 5000;
     });
 
     app.use(UserRouter);
-    // app.use(JobRouter);
+    app.use(JobRouter);
     
     // error handling
     app.use(errorHandler);
