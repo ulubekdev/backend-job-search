@@ -1,5 +1,5 @@
-import { AuthorizationError, InternalServerError } from '../utils/errors.js'
-import JWT from 'jsonwebtoken'
+import { AuthorizationError, InternalServerError } from '../utils/errors.js';
+import JWT from 'jsonwebtoken';
 
 export default {
     sign: payload => {
