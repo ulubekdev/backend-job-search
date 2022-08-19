@@ -1,10 +1,33 @@
 import JWT from '../utils/jwt.js';
 import sha256 from 'sha256';
-import { InternalServerError, NotFoundError } from '../utils/errors.js';
+import { InternalServerError } from '../utils/errors.js';
 
 
 const REGISTER = async (req, res, next) => {
     try {
+        if(!(req.body.name && req.body.email && req.body.password && req.body.role)) {
+            return res.status(400).send({
+                status: 400,
+                message: 'Please provide all required fields',
+                token: null,
+                data: null
+            });
+        }
+        const oldUser = await req.models.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+
+        if (oldUser) {
+            return res.status(409).json({
+                status: 409,
+                message: 'User already exists',
+                token: null,
+                data: null
+            });
+        }
+
         const user = await req.models.User.create({
             name: req.body.name,
             company: req.body.company,
@@ -33,7 +56,12 @@ const LOGIN = async (req, res, next) => {
             }
         });
         if (!user) {
-            throw new Error(res, 403, 'Invalid credentials');
+            return res.status(404).send({
+                status: 404,
+                message: 'User not found',
+                token: null,
+                data: null
+            });
         }
         const token = JWT.sign({ userId: user.user_id, agent: req.headers['user-agent'] });
         res.send({
@@ -73,7 +101,12 @@ const UPDATE_USER = async (req, res, next) => {
         });
 
         if (user.includes(0)) {
-            return next(new NotFoundError(404, "User not found"));
+            return res.status(404).send({
+                status: 404,
+                message: 'User not found',
+                token: null,
+                data: null
+            });
         }
         
         res.send({
@@ -109,7 +142,12 @@ const DELETE_USER = async (req, res, next) => {
         });
 
         if(!user) {
-            return next(new NotFoundError(404, "User not found"));
+            return res.status(404).send({
+                status: 404,
+                message: 'User not found',
+                token: null,
+                data: null
+            });
         }
 
         res.send({
