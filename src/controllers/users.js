@@ -149,12 +149,6 @@ const DELETE_USER = async (req, res, next) => {
             return next(new InternalServerError(500, 'You cannot delete yourself'));
         }
 
-        const deletedUser = await req.models.User.findOne({
-            where: {
-                user_id: id
-            }
-        })
-
         const user = await req.models.User.destroy({
             where: {
                 user_id: req.params.id
@@ -174,7 +168,7 @@ const DELETE_USER = async (req, res, next) => {
         res.send({
             status: 200,
             message: 'User deleted successfully',
-            data: deletedUser
+            data: oldUser
         });
     } catch (error) {
         return next(new InternalServerError(500, error.message));

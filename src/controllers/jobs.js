@@ -96,8 +96,42 @@ const UPDATE_JOB = async (req, res, next) => {
     }
 };
 
+const DELETE_JOB = async (req, res, next) => {
+    try {
+        let { id } = req.params;
+        id = parseInt(id);
+
+        const oldJob = await req.models.Job.findOne({
+            where: {
+                job_id: id
+            }
+        });
+
+        if(!oldJob) {
+            return res.status(404).send({
+                status: 404,
+                message: 'Job not found',
+                data: null
+            });
+        }
+        await req.models.Job.destroy({
+            where: {
+                job_id: id
+            }
+        });
+        res.status(200).send({
+            status: 200,
+            message: 'Job deleted successfully',
+            data: oldJob
+        });
+    } catch (error) {
+        return next(new InternalServerError(500, error.message));
+    }
+};
+
 export default {
     GET_JOBS,
     CREATE_JOB,
-    UPDATE_JOB
+    UPDATE_JOB,
+    DELETE_JOB
 }
