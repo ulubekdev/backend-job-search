@@ -36,7 +36,7 @@ export default ({ sequelize }) => {
             allowNull: false
         },
         category: {
-            type: DataTypes.ENUM('IT', 'MARKETING', 'DESIGN', 'SALES', 'FINANCE', 'MANAGMENT', 'OTHER'),
+            type: DataTypes.ENUM('Programming', 'Marketing', 'Design', 'Salse', 'Finance', 'Managment', 'Others'),
             allowNull: false
         },
         skills: {

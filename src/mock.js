@@ -39,10 +39,10 @@ export default async ({ sequelize }) => {
             experience: '1-3',
             salary: '800$',
             type: 'full-time',
-            category: 'IT',
+            category: 'Programming',
             skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
-            status: 'active'
+            status: 'active',
         },
         {
             title: 'Node.js Backend Developer',
@@ -52,10 +52,10 @@ export default async ({ sequelize }) => {
             experience: '1-3',
             salary: '500$',
             type: 'full-time',
-            category: 'IT',
+            category: 'Programming',
             skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
-            status: 'active'
+            status: 'active',
         },
         {
             title: 'Full Stack Developer',
@@ -65,10 +65,10 @@ export default async ({ sequelize }) => {
             experience: '3-5',
             salary: '1000$',
             type: 'part-time',
-            category: 'IT',
+            category: 'Programming',
             skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'Git', 'REST API', 'Agile Methodologies'],
             requirements: 'BSc degree in Computer Science, Engineering or a related subject',
-            status: 'active'
+            status: 'active',
         }
     ])
 
