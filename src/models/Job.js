@@ -15,6 +15,10 @@ export default ({ sequelize }) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        contact: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         description: {
             type: DataTypes.STRING(1000),
             allowNull: false

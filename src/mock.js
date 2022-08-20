@@ -34,6 +34,7 @@ export default async ({ sequelize }) => {
         {
             title: 'Frontend Developer',
             company: 'Nolbir',
+            contact: '+998991112233',
             description: 'We are looking for a Frontend Developer to join our team. You will be responsible for building the ‘client-side’ of our web applications. You should be able to translate our company and customer needs into functional and appealing interactive applications. If you’re also familiar with Agile methodologies and are passionate about the latest front-end technologies and frameworks, we’d like to meet you. Ultimately, you will help us build and maintain functional and stable web applications.',
             location: 'Buxoro',
             experience: '1-3',
@@ -47,6 +48,7 @@ export default async ({ sequelize }) => {
         {
             title: 'Node.js Backend Developer',
             company: 'Layyan',
+            contact: 'layyan@gmail.com',
             description: 'We are looking for a Backend Developer to join our team. You will be responsible for building the ‘server-side’ of our web applications. You should be able to translate our company and customer needs into functional and appealing interactive applications. If you’re also familiar with Agile methodologies and are passionate about the latest back-end technologies and frameworks, we’d like to meet you. Ultimately, you will help us build and maintain functional and stable web applications.',
             location: 'Tashkent',
             experience: '1-3',
@@ -60,6 +62,7 @@ export default async ({ sequelize }) => {
         {
             title: 'Full Stack Developer',
             company: 'Nolbir',
+            contact: '+998991112233',
             description: 'We are looking for a Full Stack Developer to join our team. You will be responsible for building the ‘client-side’ and ‘server-side’ of our web applications. You should be able to translate our company and customer needs into functional and appealing interactive applications. If you’re also familiar with Agile methodologies and are passionate about the latest front-end and back-end technologies and frameworks, we’d like to meet you. Ultimately, you will help us build and maintain functional and stable web applications.',
             location: 'Xorazm',
             experience: '3-5',

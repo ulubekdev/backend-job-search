@@ -129,9 +129,42 @@ const DELETE_JOB = async (req, res, next) => {
     }
 };
 
+const GET_JOB_BY_TITLE = async (req, res, next) => {
+    try {
+        let { job_title } = req.params;
+
+        let title = job_title.split('-')[0];
+        let index = job_title.split('-')[1];
+
+        const job = await req.models.Job.findOne({
+            where: {
+                job_id: index,
+                title: title
+            }
+        });
+
+        if(!job) {
+            return res.status(404).send({
+                status: 404,
+                message: 'Job not found',
+                data: null
+            });
+        }
+
+        res.status(200).send({
+            status: 200,
+            message: 'Job fetched successfully',
+            data: job
+        });
+    } catch (error) {
+        return next(new InternalServerError(500, error.message));
+    }
+};
+
 export default {
     GET_JOBS,
     CREATE_JOB,
     UPDATE_JOB,
-    DELETE_JOB
+    DELETE_JOB,
+    GET_JOB_BY_TITLE
 }
