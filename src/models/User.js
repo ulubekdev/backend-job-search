@@ -13,10 +13,11 @@ export default ({ sequelize }) => {
         },
         company: {
             type: DataTypes.STRING,
-            defaultValue: undefined
+            allowNull: true,
+            defaultValue: null
         },
         role: {
-            type: DataTypes.ENUM('employee', 'employer', 'admin'),
+            type: DataTypes.ENUM('employer', 'admin'),
             allowNull: false
         },
         password: {

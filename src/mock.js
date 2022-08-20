@@ -3,14 +3,14 @@ export default async ({ sequelize }) => {
         {
             name: 'ali',
             company: 'Nolbir',
-            role: 'employee',
+            role: 'employer',
             password: '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5',
             email: 'ali@gmail.com'
         },
         {
             name: 'nosir',
-            company: null,
-            role: 'employee',
+            company: 'Behhh',
+            role: 'employer',
             password: '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5',
             email: 'nosir@gmail.com'
         },
