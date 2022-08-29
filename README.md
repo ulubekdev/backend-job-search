@@ -1,3 +1,3 @@
 # backend-job-search
 
-Job-site Backend section
+The BackEnd part of the future Uzbek Job Search site
