@@ -26,11 +26,6 @@ const PORT = process.env.PORT || 5000;
 
     // await mockData({ sequelize: db });
 
-    app.use((req, res, next) => {
-        req.models = db.models;
-        next();
-    });
-
     app.use(UserRouter);
     app.use(JobRouter);
     
